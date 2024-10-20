@@ -62,6 +62,7 @@ router.put('/:_id',async(req,res)=>{
     try{
         const personId=req.params._id; //extract the id from url parameter
         const updatePersonData=req.body; //send those data which person cling wants to change
+        
         const response=await person.findByIdAndUpdate(personId,updatePersonData,{
             new:true, //run the update document
             runValidator:true,//run mongoose validatiors
@@ -95,8 +96,6 @@ router.delete('/:id', async(req,res)=>{
         res.status(500).json({error:'internal issue'});
 
     }
-})
-
-//hey there
+});
 
 module.exports=router;
